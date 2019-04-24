@@ -1,0 +1,57 @@
+.form-container {
+  margin: 0;
+  padding: 2rem 4rem;
+  background: white;
+  width: 50vw;
+}
+
+form {
+  margin: 0;
+  input[type='radio'] {
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+  }
+  label {
+    display: block;
+    margin: 0.5rem 0;
+    padding: 1rem;
+    transition: 200ms all;
+    &:hover,
+    &:focus {
+      transition: 200ms all;
+      // outline: 1px solid gray;
+      background: tomato;
+      // box-shadow: 0px 3px 5px whitesmoke;
+    }
+  }
+  // input:selected ~
+
+  .btn-group {
+    margin-top: 2rem;
+    display: flex;
+    // background: red;
+    justify-content: space-between;
+    button {
+      padding: 1rem 3rem;
+      background: transparent;
+      border: 1px solid black;
+      &.next {
+        border-color: dodgerblue;
+        color: dodgerblue;
+        &:disabled {
+          color: gray;
+          border-color: gray;
+          opacity: 0.5;
+        }
+      }
+      &.skip {
+        border-color: orange;
+        color: orange;
+      }
+    }
+  }
+}

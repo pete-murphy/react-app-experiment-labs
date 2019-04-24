@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Question from './Question';
+import './Form.scss';
 
 export default function Form({ questions: _qs }) {
   const [step, setStep] = useState(1);
@@ -9,7 +10,7 @@ export default function Form({ questions: _qs }) {
     setQuestions(_qs.map(q => ({ ...q, selected: null })));
   }, [_qs]);
 
-  const handleSetQuestions = questionIx => optionIx => _e => {
+  const handleAnswer = questionIx => optionIx => _e => {
     setQuestions(
       questions.map((q, ix) =>
         ix === questionIx
@@ -20,22 +21,28 @@ export default function Form({ questions: _qs }) {
           : q
       )
     );
+  };
 
+  const handleNext = _e => {
     step === questions.length ? handleFormEnd() : setStep(step + 1);
   };
+
   const handleFormEnd = () => {};
 
   return (
-    <form>
-      {questions.map((q, ix) => (
-        <Question
-          key={ix}
-          questionIx={ix}
-          show={step === ix + 1}
-          handleChange={handleSetQuestions(ix)}
-          {...q}
-        />
-      ))}
-    </form>
+    <div className="form-container">
+      <form>
+        {questions.map((q, ix) => (
+          <Question
+            key={ix}
+            questionIx={ix}
+            show={step === ix + 1}
+            handleAnswer={handleAnswer(ix)}
+            handleNext={handleNext}
+            {...q}
+          />
+        ))}
+      </form>
+    </div>
   );
 }

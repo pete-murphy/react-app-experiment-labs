@@ -1,10 +1,14 @@
 import React from 'react';
 import questions from './questions';
-import './App.css';
+import './App.scss';
 import Form from './components/Form';
 
 function App() {
-  return <Form questions={questions} />;
+  return (
+    <div className="container">
+      <Form questions={questions} />
+    </div>
+  );
 }
 
 export default App;
