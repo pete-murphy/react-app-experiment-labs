@@ -1,12 +1,14 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import Input from './components/Input';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <Input />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
